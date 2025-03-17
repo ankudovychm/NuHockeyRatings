@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Northeastern Hockey Sports Grid</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Northeastern Hockey Sports Grid</h1>
+
+  <!-- Tabs for Womens / Mens -->
+  <div class="tab-container">
+    <button class="tab-button active" data-tab="womensTab">Womens</button>
+    <button class="tab-button" data-tab="mensTab">Mens</button>
+  </div>
+
+  <!-- Womens Tab -->
+  <div id="womensTab" class="tab-content active">
+    <table class="grid-table">
+      <thead>
+        <tr>
+          <!-- Top left corner with husky image -->
+          <th class="corner-cell">
+            <img src="husky.png" alt="Husky" class="grid-husky" />
+          </th>
+          <th class="good-header">Good player</th>
+          <th class="average-header">Average player</th>
+          <th class="bad-header">Bad player</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-row="Loved by fans">
+          <th class="good-header">Loved by fans</th>
+          <td class="grid-cell" data-grid="womens" data-row="Loved by fans" data-col="Good player">
+            <input type="text" class="search-input" placeholder="Search..." />
+            <select class="dropdown"></select>
+          </td>
+          <td class="grid-cell" data-grid="womens" data-row="Loved by fans" data-col="Average player">
+            <input type="text" class="search-input" placeholder="Search..." />
+            <select class="dropdown"></select>
+          </td>
+          <td class="grid-cell" data-grid="womens" data-row="Loved by fans" data-col="Bad player">
+            <input type="text" class="search-input" placeholder="Search..." />
+            <select class="dropdown"></select>
+          </td>
+        </tr>
+        <tr data-row="Fans are divided">
+          <th class="average-header">Fans are divided</th>
+          <td class="grid-cell" data-grid="womens" data-row="Fans are divided" data-col="Good player">
+            <input type="text" class="search-input" placeholder="Search..." />
+            <select class="dropdown"></select>
+          </td>
+          <td class="grid-cell" data-grid="womens" data-row="Fans are divided" data-col="Average player">
+            <input type="text" class="search-input" placeholder="Search..." />
+            <select class="dropdown"></select>
+          </td>
+          <td class="grid-cell" data-grid="womens" data-row="Fans are divided" data-col="Bad player">
+            <input type="text" class="search-input" placeholder="Search..." />
+            <select class="dropdown"></select>
+          </td>
+        </tr>
+        <tr data-row="Hated by fans">
+          <th class="bad-header">Hated by fans</th>
+          <td class="grid-cell" data-grid="womens" data-row="Hated by fans" data-col="Good player">
+            <input type="text" class="search-input" placeholder="Search..." />
+            <select class="dropdown"></select>
+          </td>
+          <td class="grid-cell" data-grid="womens" data-row="Hated by fans" data-col="Average player">
+            <input type="text" class="search-input" placeholder="Search..." />
+            <select class="dropdown"></select>
+          </td>
+          <td class="grid-cell" data-grid="womens" data-row="Hated by fans" data-col="Bad player">
+            <input type="text" class="search-input" placeholder="Search..." />
+            <select class="dropdown"></select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="submit-button" data-grid="womens">Submit Womens Choices</button>
+  </div>
+
+  <!-- Mens Tab -->
+  <div id="mensTab" class="tab-content">
+    <table class="grid-table">
+      <thead>
+        <tr>
+          <!-- Top left corner with husky image -->
+          <th class="corner-cell">
+            <img src="husky.png" alt="Husky" class="grid-husky" />
+          </th>
+          <th class="good-header">Good player</th>
+          <th class="average-header">Average player</th>
+          <th class="bad-header">Bad player</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-row="Loved by fans">
+          <th class="good-header">Loved by fans</th>
+          <td class="grid-cell" data-grid="mens" data-row="Loved by fans" data-col="Good player">
+            <input type="text" class="search-input" placeholder="Search..." />
+            <select class="dropdown"></select>
+          </td>
+          <td class="grid-cell" data-grid="mens" data-row="Loved by fans" data-col="Average player">
+            <input type="text" class="search-input" placeholder="Search..." />
+            <select class="dropdown"></select>
+          </td>
+          <td class="grid-cell" data-grid="mens" data-row="Loved by fans" data-col="Bad player">
+            <input type="text" class="search-input" placeholder="Search..." />
+            <select class="dropdown"></select>
+          </td>
+        </tr>
+        <tr data-row="Fans are divided">
+          <th class="average-header">Fans are divided</th>
+          <td class="grid-cell" data-grid="mens" data-row="Fans are divided" data-col="Good player">
+            <input type="text" class="search-input" placeholder="Search..." />
+            <select class="dropdown"></select>
+          </td>
+          <td class="grid-cell" data-grid="mens" data-row="Fans are divided" data-col="Average player">
+            <input type="text" class="search-input" placeholder="Search..." />
+            <select class="dropdown"></select>
+          </td>
+          <td class="grid-cell" data-grid="mens" data-row="Fans are divided" data-col="Bad player">
+            <input type="text" class="search-input" placeholder="Search..." />
+            <select class="dropdown"></select>
+          </td>
+        </tr>
+        <tr data-row="Hated by fans">
+          <th class="bad-header">Hated by fans</th>
+          <td class="grid-cell" data-grid="mens" data-row="Hated by fans" data-col="Good player">
+            <input type="text" class="search-input" placeholder="Search..." />
+            <select class="dropdown"></select>
+          </td>
+          <td class="grid-cell" data-grid="mens" data-row="Hated by fans" data-col="Average player">
+            <input type="text" class="search-input" placeholder="Search..." />
+            <select class="dropdown"></select>
+          </td>
+          <td class="grid-cell" data-grid="mens" data-row="Hated by fans" data-col="Bad player">
+            <input type="text" class="search-input" placeholder="Search..." />
+            <select class="dropdown"></select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="submit-button" data-grid="mens">Submit Mens Choices</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
