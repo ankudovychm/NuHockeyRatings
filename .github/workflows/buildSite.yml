@@ -16,7 +16,12 @@ jobs:
       - name: Build the site
         run: |
           echo "Building site from root directory..."
+          # Add any build commands if needed
 
+      - name: Run update script
+        run: node script.js
+        env:
+          GITHUB_PAT: ${{ secrets.PAT }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
