@@ -23,9 +23,10 @@ jobs:
         env:
           GITHUB_PAT: ${{ secrets.PAT }}
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.PAT }}
-          publish_dir: .
-          publish_branch: gh-pages
+      - name: Commit and push changes to main
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Automated update via GitHub Actions" || echo "No changes to commit"
+          git push origin main
