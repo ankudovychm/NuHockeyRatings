@@ -1,0 +1,26 @@
+name: Build and Deploy Site
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build the site
+        run: |
+          echo "Building site from root directory..."
+
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          GITHUB_PAT: ${{ secrets.PAT }}
+          publish_dir: .
+          publish_branch: gh-pages
