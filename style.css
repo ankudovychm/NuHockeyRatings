@@ -105,3 +105,53 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* Site Header Styling */
+.site-header {
+  background-color: #f8f8f8;
+  padding: 20px 0;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-logo {
+  height: 50px;
+}
+
+.header-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.header-nav li {
+  margin-left: 20px;
+}
+
+.header-nav a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #333;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.header-nav a:hover {
+  background-color: #e0e0e0;
+}

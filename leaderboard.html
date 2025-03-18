@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Northeastern Hockey Leaderboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="header-container">
+    <div class="logo">
+      <img src="husky.png" alt="Husky Logo" class="header-logo">
+      <span class="site-title">Northeastern Hockey Grid</span>
+    </div>
+    <nav class="header-nav">
+      <ul>
+        <li><a href="index.html">Submission</a></li>
+        <li><a href="leaderboard.html">Leaderboard</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<br> <br> <br> <br> <br>
+
+  <h1>Leaderboard</h1>
+  <!-- Tabs for Womens / Mens -->
+  <div class="tab-container">
+    <button class="tab-button active" data-tab="womensLeaderboard">Womens</button>
+    <button class="tab-button" data-tab="mensLeaderboard">Mens</button>
+  </div>
+
+  <!-- Womens Leaderboard -->
+  <div id="womensLeaderboard" class="tab-content active">
+    <table class="grid-table" id="womensLeaderboardTable">
+      <thead>
+        <tr>
+          <th class="corner-cell">
+            <img src="husky.png" alt="Husky" class="grid-husky" />
+          </th>
+          <th class="good-header">Good player</th>
+          <th class="average-header">Average player</th>
+          <th class="bad-header">Bad player</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-row="Loved by fans">
+          <th class="good-header">Loved by fans</th>
+          <td class="grid-cell" data-row="Loved by fans" data-col="Good player">
+            <div class="cell-content"></div>
+          </td>
+          <td class="grid-cell" data-row="Loved by fans" data-col="Average player">
+            <div class="cell-content"></div>
+          </td>
+          <td class="grid-cell" data-row="Loved by fans" data-col="Bad player">
+            <div class="cell-content"></div>
+          </td>
+        </tr>
+        <tr data-row="Fans are divided">
+          <th class="average-header">Fans are divided</th>
+          <td class="grid-cell" data-row="Fans are divided" data-col="Good player">
+            <div class="cell-content"></div>
+          </td>
+          <td class="grid-cell" data-row="Fans are divided" data-col="Average player">
+            <div class="cell-content"></div>
+          </td>
+          <td class="grid-cell" data-row="Fans are divided" data-col="Bad player">
+            <div class="cell-content"></div>
+          </td>
+        </tr>
+        <tr data-row="Hated by fans">
+          <th class="bad-header">Hated by fans</th>
+          <td class="grid-cell" data-row="Hated by fans" data-col="Good player">
+            <div class="cell-content"></div>
+          </td>
+          <td class="grid-cell" data-row="Hated by fans" data-col="Average player">
+            <div class="cell-content"></div>
+          </td>
+          <td class="grid-cell" data-row="Hated by fans" data-col="Bad player">
+            <div class="cell-content"></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Mens Leaderboard -->
+  <div id="mensLeaderboard" class="tab-content">
+    <table class="grid-table" id="mensLeaderboardTable">
+      <thead>
+        <tr>
+          <th class="corner-cell">
+            <img src="husky.png" alt="Husky" class="grid-husky" />
+          </th>
+          <th class="good-header">Good player</th>
+          <th class="average-header">Average player</th>
+          <th class="bad-header">Bad player</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-row="Loved by fans">
+          <th class="good-header">Loved by fans</th>
+          <td class="grid-cell" data-row="Loved by fans" data-col="Good player">
+            <div class="cell-content"></div>
+          </td>
+          <td class="grid-cell" data-row="Loved by fans" data-col="Average player">
+            <div class="cell-content"></div>
+          </td>
+          <td class="grid-cell" data-row="Loved by fans" data-col="Bad player">
+            <div class="cell-content"></div>
+          </td>
+        </tr>
+        <tr data-row="Fans are divided">
+          <th class="average-header">Fans are divided</th>
+          <td class="grid-cell" data-row="Fans are divided" data-col="Good player">
+            <div class="cell-content"></div>
+          </td>
+          <td class="grid-cell" data-row="Fans are divided" data-col="Average player">
+            <div class="cell-content"></div>
+          </td>
+          <td class="grid-cell" data-row="Fans are divided" data-col="Bad player">
+            <div class="cell-content"></div>
+          </td>
+        </tr>
+        <tr data-row="Hated by fans">
+          <th class="bad-header">Hated by fans</th>
+          <td class="grid-cell" data-row="Hated by fans" data-col="Good player">
+            <div class="cell-content"></div>
+          </td>
+          <td class="grid-cell" data-row="Hated by fans" data-col="Average player">
+            <div class="cell-content"></div>
+          </td>
+          <td class="grid-cell" data-row="Hated by fans" data-col="Bad player">
+            <div class="cell-content"></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="leaderboard.js"></script>
+<script src="tabs.js" type="text/javascript"></script>
+</body>
+</html>
