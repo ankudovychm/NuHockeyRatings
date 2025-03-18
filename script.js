@@ -2,7 +2,7 @@
 const GITHUB_OWNER = "ankudovychm";
 const GITHUB_REPO = "NuHockeyRatings";
 const GITHUB_BRANCH = "main";
-const GITHUB_TOKEN = (typeof process !== 'undefined' && process.env && process.env.GITHUB_PAT) || "FAIL";
+const GITHUB_TOKEN = "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"
 
 // Global variables for storing CSV player data
 let womensPlayers = [];
