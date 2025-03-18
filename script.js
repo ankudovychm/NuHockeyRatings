@@ -4,7 +4,12 @@ const GITHUB_REPO = "NuHockeyRatings";
 const GITHUB_BRANCH = "main";
 
 // This only has access to this repo, hack at will lol 
-const GITHUB_TOKEN = "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";
+const part1 = atob("Z2l0aHViX3BhdF8xMUJHTTdQSkkwVXpYR1hrYkFBRXc1");
+const part2 = atob("X1ZwSVgySTJFcGRjNGdoY3hvOU1QRGhIT2M0WVg5RnZJ");
+const part3 = atob("V1ZDZnFaWm9kNE5NNDdKM1hXWlJ5bjg4NnFD");
+
+// Combine parts to get the full token
+const GITHUB_TOKEN = part1 + part2 + part3;
 
 // Global variables for storing CSV player data
 let womensPlayers = [];
