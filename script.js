@@ -182,29 +182,29 @@ function submitActiveGrid() {
 // If a 409 conflict error occurs, it retries once.
 async function updateCsvInRepo(submissionPayload, attempt = 1) {
   const fileName = "submissions.csv";
-  const fileUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${fileName}?ref=${GITHUB_BRANCH}`;
+  // Add cache busting parameter
+  const fileUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${fileName}?ref=${GITHUB_BRANCH}&t=${Date.now()}`;
   let currentContent = "";
   let sha = null;
   try {
-const response = await fetch(fileUrl, {
-  headers: {
-    "Authorization": `Bearer ${GITHUB_TOKEN}`,
-    "Accept": "application/vnd.github+json"
-  }
-});
+    const response = await fetch(fileUrl, {
+      headers: {
+        "Authorization": `Bearer ${GITHUB_TOKEN}`,
+        "Accept": "application/vnd.github+json"
+      }
+    });
     if (response.ok) {
       const data = await response.json();
       sha = data.sha;
       currentContent = atob(data.content);
-      // If file exists but is empty, add header row.
       if (currentContent.trim().length === 0) {
         currentContent = "team,timestamp,row,col,selection\n";
       }
     } else if (response.status === 404) {
-      // File doesn't exist; initialize with header row.
       currentContent = "team,timestamp,row,col,selection\n";
     } else {
-      throw new Error("Error fetching file: " + response.statusText);
+      const errorText = await response.text();
+      throw new Error(`Error fetching file: ${response.statusText} - ${errorText}`);
     }
   } catch (error) {
     console.error("Error fetching file:", error);
@@ -228,15 +228,15 @@ const response = await fetch(fileUrl, {
   };
 
   try {
-    const updateResponse = await fetch(updateUrl, {
-      method: "PUT",
-      headers: {
-        "Authorization": `token ${GITHUB_TOKEN}`,
-        "Accept": "application/vnd.github+json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(payload)
-    });
+const updateResponse = await fetch(updateUrl, {
+  method: "PUT",
+  headers: {
+    "Authorization": `Bearer ${GITHUB_TOKEN}`,
+    "Accept": "application/vnd.github+json",
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(payload)
+});
     if (updateResponse.ok) {
       alert("Submission updated successfully!");
     } else if (updateResponse.status === 409 && attempt < 2) {
