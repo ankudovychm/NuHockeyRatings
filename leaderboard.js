@@ -1,9 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
   // URL for the raw CSV file. Ensure your repository is public.
-  const csvUrl = "https://raw.githubusercontent.com/ankudovychm/NuHockeyRatings/main/submissions.csv";
-
-  fetch(csvUrl)
-    .then(response => response.text())
+const csvUrl = "https://raw.githubusercontent.com/ankudovychm/NuHockeyRatings/main/submissions.csv?t=" + new Date().getTime();
+fetch(csvUrl, {
+  headers: {
+    "Cache-Control": "no-cache"
+  }
+})
+  .then(response => response.text())
     .then(text => {
       const data = parseCSV(text);
       const leaderboards = computeLeaderboards(data);
