@@ -1,1 +1,10 @@
-
+team,timestamp,row,col,selection
+womens,2025-03-18T00:17:05.682Z,Loved by fans,Good player,Abbey Marohn
+womens,2025-03-18T00:17:05.682Z,Loved by fans,Average player,Alexa Matses
+womens,2025-03-18T00:17:05.682Z,Loved by fans,Bad player,Alina Mueller
+womens,2025-03-18T00:17:05.682Z,Fans are divided,Good player,Allie Lalonde
+womens,2025-03-18T00:17:05.682Z,Fans are divided,Average player,Ellie Mabardy
+womens,2025-03-18T00:17:05.682Z,Fans are divided,Bad player,Alyssa Antonakis
+womens,2025-03-18T00:17:05.682Z,Hated by fans,Good player,Avery Anderson
+womens,2025-03-18T00:17:05.682Z,Hated by fans,Average player,Ella Blackmore
+womens,2025-03-18T00:17:05.682Z,Hated by fans,Bad player,Chloé Aurard
