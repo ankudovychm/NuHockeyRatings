@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-  // URL for the raw CSV file.
+  // URL for the raw CSV file. Ensure your repository is public.
   const csvUrl = "https://raw.githubusercontent.com/ankudovychm/NuHockeyRatings/main/submissions.csv";
 
   fetch(csvUrl)
@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(text => {
       const data = parseCSV(text);
       const leaderboards = computeLeaderboards(data);
+      console.log("Computed Leaderboards:", leaderboards);
       updateLeaderboardTables(leaderboards);
     })
     .catch(err => {
@@ -16,17 +17,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
 /**
  * Parse CSV text handling quoted fields and special characters.
- * Normalizes each field to NFC form to fix issues with special characters.
+ * Normalizes each field to NFC form and trims whitespace.
  * Returns an array of record objects with header keys.
  */
 function parseCSV(text) {
   const lines = text.split(/\r?\n/);
   if (!lines || lines.length < 2) return [];
-  const header = parseCSVLine(lines[0]).map(val => val.normalize("NFC"));
+  const header = parseCSVLine(lines[0]).map(val => val.normalize("NFC").trim());
   const records = [];
   for (let i = 1; i < lines.length; i++) {
     if (!lines[i].trim()) continue;
-    const values = parseCSVLine(lines[i]).map(val => val.normalize("NFC"));
+    const values = parseCSVLine(lines[i]).map(val => val.normalize("NFC").trim());
     if (values.length === header.length) {
       let record = {};
       header.forEach((col, idx) => {
@@ -67,12 +68,17 @@ function parseCSVLine(line) {
   return result;
 }
 
-// Compute leaderboards: group by team, then row, then col.
-
+/**
+ * Compute leaderboards: group by team, then row, then col.
+ * Normalizes the team field by trimming and converting to lowercase.
+ * Returns an object:
+ *   leaderboards[team][row][col] = { playerName: count, ... }
+ */
 function computeLeaderboards(records) {
   const leaderboards = {};
   records.forEach(record => {
-    const team = record.team;
+    // Normalize team: trim whitespace and lowercase.
+    const team = record.team.trim().toLowerCase();
     const row = record.row;
     const col = record.col;
     const selection = record.selection;
@@ -87,14 +93,19 @@ function computeLeaderboards(records) {
   return leaderboards;
 }
 
-// Update both womens and mens leaderboard tables.
+/**
+ * Update both womens and mens leaderboard tables.
+ * If no data exists for a team, an empty object is used.
+ */
 function updateLeaderboardTables(leaderboards) {
   updateTable("womensLeaderboardTable", leaderboards["womens"] || {});
   updateTable("mensLeaderboardTable", leaderboards["mens"] || {});
 }
 
-// Update each cell's scrollable container (.cell-content) with an unordered list
-// of all players (sorted by vote count descending) and their vote counts.
+/**
+ * Update each cell's scrollable container (.cell-content) with an unordered list
+ * of all players (sorted by vote count descending) and their vote counts.
+ */
 function updateTable(tableId, teamData) {
   const table = document.getElementById(tableId);
   if (!table) return;
