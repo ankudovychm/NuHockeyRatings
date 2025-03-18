@@ -3,7 +3,7 @@ const GITHUB_OWNER = "ankudovychm";
 const GITHUB_REPO = "NuHockeyRatings";
 const GITHUB_BRANCH = "main";
 
-// this only has access to thsi repo, so feel free to hack.. only this repo if you so desire
+// this only has access to this repo, so feel free to hack.. only this repo if you so desire
 const GITHUB_TOKEN = "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"
 
 // Global variables for storing CSV player data
@@ -39,11 +39,10 @@ window.addEventListener("DOMContentLoaded", async () => {
   initGridCells("womens", womensPlayers, selectedWomens);
   initGridCells("mens", mensPlayers, selectedMens);
 
-  // Attach submit button listeners
+  // Attach submit button listeners (we now use one for the active grid only)
   document.querySelectorAll(".submit-button").forEach(button => {
     button.addEventListener("click", () => {
-      const gridType = button.getAttribute("data-grid");
-      submitGrid(gridType);
+      submitActiveGrid();
     });
   });
 });
@@ -133,12 +132,25 @@ function updateSelectedSet(gridType, baseOptions, selectedSet) {
   });
 }
 
-// --- Submit Grid Data ---
-function submitGrid(gridType) {
-  const cells = document.querySelectorAll(`.grid-cell[data-grid="${gridType}"]`);
+// --- Submit Active Grid Data ---
+// This function finds the currently active tab, validates its grid, and submits only that grid.
+function submitActiveGrid() {
+  // Find the active tab container (it should have a data-grid attribute set in HTML)
+  const activeTab = document.querySelector('.tab-content.active');
+  if (!activeTab) {
+    alert("No active grid found.");
+    return;
+  }
+  const gridType = activeTab.getAttribute("data-grid");
+  if (!gridType) {
+    alert("Active grid type not set in HTML. Please add a data-grid attribute (e.g., data-grid='womens').");
+    return;
+  }
+
+  // Get all grid cells within the active tab
+  const cells = activeTab.querySelectorAll(".grid-cell");
   let submission = [];
   let incomplete = false;
-
   cells.forEach(cell => {
     const row = cell.getAttribute("data-row");
     const col = cell.getAttribute("data-col");
@@ -150,7 +162,7 @@ function submitGrid(gridType) {
   });
 
   if (incomplete) {
-    alert("Please make a selection for every cell before submitting.");
+    alert("Please fill in all cells in the active grid before submitting.");
     return;
   }
 
@@ -241,6 +253,7 @@ async function updateCsvInRepo(submissionPayload, attempt = 1) {
     alert("Error updating the CSV file in the repo.");
   }
 }
+
 // --- Tab Switching ---
 function setupTabs() {
   const buttons = document.querySelectorAll(".tab-button");
