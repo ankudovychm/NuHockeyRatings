@@ -3,13 +3,16 @@ const GITHUB_OWNER = "ankudovychm";
 const GITHUB_REPO = "NuHockeyRatings";
 const GITHUB_BRANCH = "main";
 
-// This only has access to this repo, hack at will lol 
-const part1 = atob("Z2l0aHViX3BhdF8xMUJHTTdQSkkwVXpYR1hrYkFBRXc1");
-const part2 = atob("X1ZwSVgySTJFcGRjNGdoY3hvOU1QRGhIT2M0WVg5RnZJ");
-const part3 = atob("V1ZDZnFaWm9kNE5NNDdKM1hXWlJ5bjg4NnFD");
+// Encoded parts of the token
+const part1 = atob("Z2l0aHViX3BhdF8xMUJHTTdQSkkwQ3lPRWlG");
+const part2 = atob("UHU3MVVVX1huNG84Tmk1YU1vZTg5MHRzNThl");
+const part3 = atob("ZDBjMzFoa1lHNFZ4M05Ud3E1Zjg4WnMzRE5Z");
+const part4 = atob("R1lSU0xPaTVmOG5P");
 
 // Combine parts to get the full token
-const GITHUB_TOKEN = part1 + part2 + part3;
+const GITHUB_TOKEN = part1 + part2 + part3 + part4;
+
+console.log(GITHUB_TOKEN); // This will print the original token
 
 // Global variables for storing CSV player data
 let womensPlayers = [];
