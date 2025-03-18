@@ -12,7 +12,6 @@ const part4 = atob("R1lSU0xPaTVmOG5P");
 // Combine parts to get the full token
 const GITHUB_TOKEN = part1 + part2 + part3 + part4;
 
-console.log(GITHUB_TOKEN); // This will print the original token
 
 // Global variables for storing CSV player data
 let womensPlayers = [];
