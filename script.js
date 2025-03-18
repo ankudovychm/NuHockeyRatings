@@ -186,12 +186,12 @@ async function updateCsvInRepo(submissionPayload, attempt = 1) {
   let currentContent = "";
   let sha = null;
   try {
-    const response = await fetch(fileUrl, {
-      headers: {
-        "Authorization": `token ${GITHUB_TOKEN}`,
-        "Accept": "application/vnd.github+json"
-      }
-    });
+const response = await fetch(fileUrl, {
+  headers: {
+    "Authorization": `Bearer ${GITHUB_TOKEN}`,
+    "Accept": "application/vnd.github+json"
+  }
+});
     if (response.ok) {
       const data = await response.json();
       sha = data.sha;
