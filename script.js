@@ -3,7 +3,8 @@ const GITHUB_OWNER = "ankudovychm";
 const GITHUB_REPO = "NuHockeyRatings";
 const GITHUB_BRANCH = "main";
 
-const GITHUB_TOKEN = process.env.NEWPAT;
+// This only has access to this repo, hack at will lol 
+const GITHUB_TOKEN = "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";
 
 // Global variables for storing CSV player data
 let womensPlayers = [];
